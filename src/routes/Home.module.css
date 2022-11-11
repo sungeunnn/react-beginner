@@ -1,0 +1,26 @@
+.movie{
+    margin-top: 70px;
+    display: grid;
+    row-gap: 50px;
+    justify-content: center;
+}
+
+.minscreen {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+    color:white;
+    font-size: 25px;
+}
+
+@media screen and (min-width:720px) {
+    .minscreen {
+        display:none;
+    }
+}
+
+@media screen and (max-width:720px){
+    .movie{
+        display:none;
+    }
+}

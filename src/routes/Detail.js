@@ -1,41 +1,8 @@
-import { useParams } from "react-router-dom";
+import { useLinkClickHandler, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import styled from "styled-components";
-
-const StyledBasic = styled.div`
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-`;
-
-const StyledBody = styled.img`
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-`;
-
-
-const StyledBox = styled.div`
-display: flex;
-align-items: center;
-background-color: white;
-width: 80%;
-height: 100%;
-border: 1px solid white;
-opacity: 50%;
-margin-top: 150px;
-`;
-
-const StyledMovie = styled.div`
-padding: 20px;
-`
-const StyledImg = styled.img`
-  height: 400px;
-  width : 40%;
-
-`
+import styles from "./Detail.module.css";
+import Loading from './../components/Loading';
+import Title from './../components/Title';
 
 
 function Detail() {
@@ -57,19 +24,21 @@ function Detail() {
   return(
     <div>
         {loading ? (
-            <h1>Loaidng . . .</h1>
+            <Loading />
         ) : (
-            <StyledBasic>
-                <StyledBody src={detail.background_image} alt={detail.title} />
-                <StyledBox>
-                  <StyledImg src={detail.medium_cover_image} alt={detail.year} />
-                  <StyledMovie>
+            <div className={styles.detail}>
+              <Title />
+                <img className={styles.detailimg} src={detail.background_image} alt={detail.title} />
+                <div className={styles.detailbox}>
+                  <img style={{borderRadius: "10px"}}src={detail.medium_cover_image} alt={detail.year} />
+                  <div className={styles.detailex}>
                       <h1>{detail.title}</h1>
+                      <div> 💯: {detail.rating} 👍:{detail.like_count}</div>
                       <div>{Math.floor((detail.runtime)/60)}시간 {(detail.runtime)%60}분</div>
                       <p>{detail.description_full}</p>
-                    </StyledMovie>
-                  </StyledBox>
-            </StyledBasic>
+                    </div>
+                  </div>
+             </div>
             
         )}
     </div>

@@ -5,11 +5,13 @@ import {
 } from "react-router-dom";
 import Home from "./routes/Home";
 import Detail from "./routes/Detail";
+import "./style.css";
+
 
 function App() {
   return <Router>
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path={`${process.env.PUBLIC_URL}/`} element={<Home />} />
       <Route path="/movie/:id" element={<Detail />} />
     </Routes>
   </Router>;

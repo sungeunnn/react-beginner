@@ -1,84 +1,30 @@
 import { PropTypes } from "prop-types";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
-
-const StyledMain = styled.div`
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  background-color: #719e71;
-`;
-
-const StyledMovie = styled.div`
-  width: 1000px;
-  height: 1200px;
-  border: 2px solid black;
-  margin: 10px 50px px 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #f0fff0;
-`;
-
-const StyledMovieEx = styled.div`
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-`;
-
-const StyledMovieG = styled.div`
-  border: 2px solid black;
-  width: 230px;
-  height: 200px;
-  margin: 10px 10px 10px 20px;
-`;
-
-const StyledMovieS = styled.div`
-  border: 2px solid black;
-  width: 600px;
-  height: 200px;
-  margin: 10px 20px 10px 10px;
-  float: ${(props) => props.float || "none"};
-`;
-
-const StyledImg = styled.img`
-  width: 250px;
-  height: 350px;
-  margin: 20px;
-  border-radius: 20px;
-`;
-
-const StyledSpace = styled.div`
-  height : 50px;
-`
+import styles from "./Movie.module.css";
 
 function Movie({ id, coverImg, title, genres, summary }) {
   return (
-    <StyledMain>
-      <StyledSpace />
-      <StyledMovie>
+    <div className={styles.movie_box}>
+      <div className={styles.movie_align}>
         <Link to={`/movie/${id}`}>
-          <StyledImg src={coverImg} alt={title}></StyledImg>
+          <img className={styles.movie_img} src={coverImg} alt={title}></img>
         </Link>
+
         <h2>
           <Link
             style={{
               textDecoration: "none",
-              color: "black",
+              color: "whitesmoke",
+              textShadow: "3px 0 0 grey"
             }}
             to={`/movie/${id}`}
           >
             "{title}"
           </Link>
         </h2>
-        <StyledMovieEx>
-          <StyledMovieG>
+
+        <div className={styles.movie_ex}>
+          <div className={styles.movie_g}>
             <h3>Genres</h3>
             <ul>
               <li>
@@ -87,15 +33,17 @@ function Movie({ id, coverImg, title, genres, summary }) {
                 ))}
               </li>
             </ul>
-          </StyledMovieG>
-          <StyledMovieS>
+          </div>
+
+          <div className={styles.movie_s}>
             <h3>Summary</h3>
-            <p>{summary.slice(0, 400)}...</p>
-          </StyledMovieS>
-        </StyledMovieEx>
-      </StyledMovie>
-      <StyledSpace />
-    </StyledMain>
+            <p>
+              {summary.length > 195 ? `${summary.slice(0, 195)}` : summary}...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

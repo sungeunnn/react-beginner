@@ -1,0 +1,14 @@
+.titlebox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position : fixed;
+    top: -0;
+    height : 50px;
+    width : 100vw;
+    box-sizing: border-box;
+    background-color:rgb(45, 44, 44);
+    color: white;
+    opacity: 90%;
+    margin-bottom: 50px;
+}

@@ -1,0 +1,24 @@
+.detail {
+  display: flex;
+  justify-content: center;
+}
+.detailimg {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.detailbox {
+  display: flex;
+  align-items: center;
+  background-color: rgba(250, 250, 250, 0.778);
+  width: 80%;
+  height: 100%;
+  border: 2px solid rgb(222, 237, 219);
+  opacity: 80%;
+  margin-top: 150px;
+  border-radius: 5px;
+}
+.detailex {
+  padding: 20px;
+}

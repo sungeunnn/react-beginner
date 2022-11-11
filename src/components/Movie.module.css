@@ -1,0 +1,39 @@
+.movie_box {
+  width: 65vw;
+  height: 100vh;
+  border : 3px solid whitesmoke;
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+ 
+}
+
+.movie_align {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie_ex {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-evenly;
+  color: white;
+}
+
+.movie_g {
+  border: 2px solid whitesmoke;
+  border-radius: 15px;
+  width: 40%;
+  height: 250px;
+  margin: 10px 10px 10px 20px;
+}
+
+.movie_s {
+  border: 2px solid whitesmoke;
+  border-radius: 15px;
+  width: 70%;
+  height: 250px;
+  margin: 10px 20px 10px 10px;
+}
